@@ -16,7 +16,7 @@ build/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
-application-local-db.properties
+application-keySet.yml
 ### IntelliJ IDEA ###
 .idea
 *.iws
