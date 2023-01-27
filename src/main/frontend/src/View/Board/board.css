@@ -1,0 +1,13 @@
+button {
+  margin: 0.5em;
+}
+
+.selectBox{
+  width:100px;
+  padding: .8em .5em;
+  align-items: center;
+  border: 1px solid #999;
+  font-family: inherit;
+  font-size: 15px;
+  border-radius: 5px;
+}
