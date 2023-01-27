@@ -7,6 +7,7 @@ import Home from "./View/Home/Home";
 import Board from "./View/Board/Board";
 import Axios from "./View/axios";
 import BoardReg from "./View/Board/BoardReg";
+import Test from "./View/Test/Test";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
               <Nav.Item>
                 <Nav.Link as={Link} to='/axios'>Axios</Nav.Link>
               </Nav.Item>
+              <Nav.Item>
+                <Nav.Link as={Link} to='/test'>test</Nav.Link>
+              </Nav.Item>
             </Nav>
           </ul>
         </div>
@@ -36,6 +40,7 @@ function App() {
         <Route path="/board" element={<Board/>}/>
         <Route path="/board/regist" element={<BoardReg/>}/>
         <Route path="/axios" element={<Axios/>}/>
+        <Route path="/test" element={<Test/>}/>
       </Routes>
     </BrowserRouter>
   );

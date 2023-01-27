@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SaveBoardDto {
-	private String title;
-	private String content;
-	private String author;
+public class SearchBoardParamDto {
+	private String option;
+	private String searchTxt;
 }

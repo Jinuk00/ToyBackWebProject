@@ -22,4 +22,8 @@ public class CommonResponse {
 	public static CommonResponse ok(String msg){
 		return CommonResponse.builder().resultCode("ok").message(msg).build();
 	}
+
+	public static CommonResponse data(Object data){
+		return CommonResponse.builder().resultCode("ok").data(data).build();
+	}
 }
