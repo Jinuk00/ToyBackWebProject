@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import BoardNav from "./BoardNav";
+import Loading from "../Util/Loading";
 
 function BoardDetail(){
 
@@ -10,14 +11,18 @@ function BoardDetail(){
     author:"",
     content:""
   });
+  let [load, setLoad] = useState(true);
+
 
   const params = useParams();
 
   const detailContent =()=>{
+    setLoad(true);
     axios.get("/api/searchBoard/" + params.id)
         .then(response => {
           console.log(response.data.data);
           setContent(response.data.data);
+          setLoad(false);
         })
         .catch(error => alert(error));
   }
@@ -29,6 +34,7 @@ function BoardDetail(){
       <div className="w-10/12 pl-32">
         <BoardNav/>
         <div>
+          {load ? <Loading/> : null}
           <form id="board" >
             <div className="mb-3">
               <label htmlFor="title" className="block mb-2 text-base font-medium text-gray-900 text-black">제목</label>
