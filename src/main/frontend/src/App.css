@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: SingleDayTf;
+  src: url("./static/fonts/SingleDay-Regular.ttf");
+}
+
+
 .App {
   text-align: center;
 }

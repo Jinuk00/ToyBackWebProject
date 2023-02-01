@@ -26,7 +26,17 @@ public class BoardQuery {
 						board.title,
 						board.author
 		)).from(board)
+				.where(checkOption(paramDto))
 						.fetch();
 	}
 
+	private BooleanExpression checkOption(SearchBoardParamDto paramDto){
+		if(paramDto.getSearchTxt().isBlank()){
+			return null;
+		}
+		if(paramDto.getOption().equals("title")){
+			return board.title.contains(paramDto.getSearchTxt());
+		}
+		return board.author.contains(paramDto.getSearchTxt());
+	}
 }

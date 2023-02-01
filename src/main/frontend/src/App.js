@@ -2,7 +2,6 @@
 import {BrowserRouter,Routes,Route,Link} from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Navbar, Nav} from "react-bootstrap";
 import Home from "./View/Home/Home";
 import Board from "./View/Board/Board";
 import Axios from "./View/axios";
@@ -10,38 +9,35 @@ import BoardReg from "./View/Board/BoardReg";
 import Test from "./View/Test/Test";
 
 function App() {
+  console.log("앱 실행")
   return (
     <BrowserRouter>
-      <header>
-        <div>
-          <ul className="app_ul">
-              <Navbar expand="lg" bg='dark' variant='dark'>
-                <Navbar.Brand as={Link} to="/" style={{paddingLeft:'1em'}} >React Project</Navbar.Brand>
-              </Navbar>
-            <Nav defaultActiveKey="/" className="flex-column">
-              <Nav.Item>
-                <Nav.Link as={Link} to="/">Home</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link as={Link} to="/board">게시판</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link as={Link} to='/axios'>Axios</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link as={Link} to='/test'>test</Nav.Link>
-              </Nav.Item>
-            </Nav>
-          </ul>
+      <div className="flex bg-back2p">
+        <div className="list-none m-0 pl-0 w-max bg-neutral-200 h-screen">
+          <div className="bg-neutral-800 text-2xl py-2">
+            <Link to="/" className="no-underline pl-1.5 pr-5">React Project</Link>
+          </div>
+          <div className="py-2">
+            <Link to="/" className="no-underline pl-4">Home</Link>
+          </div>
+          <div className="py-2">
+            <Link to="/board" className="no-underline pl-4">게시판</Link>
+          </div>
+          <div className="py-2">
+            <Link to='/axios' className="no-underline pl-4">Axios</Link>
+          </div>
+          <div className="py-2">
+            <Link to='/test' className="no-underline pl-4">test</Link>
+          </div>
         </div>
-      </header>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/board" element={<Board/>}/>
-        <Route path="/board/regist" element={<BoardReg/>}/>
-        <Route path="/axios" element={<Axios/>}/>
-        <Route path="/test" element={<Test/>}/>
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/board" element={<Board/>}/>
+          <Route path="/board/regist" element={<BoardReg/>}/>
+          <Route path="/axios" element={<Axios/>}/>
+          <Route path="/test" element={<Test/>}/>
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }

@@ -2,8 +2,8 @@ import React from "react";
 
 function Home(){
   return(
-    <div style={{paddingLeft:"20em"}}>
-      <h1>home</h1>
+    <div className="flex">
+      <h1 className="text-gray-500">home</h1>
     </div>
   )
 }

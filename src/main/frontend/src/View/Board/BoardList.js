@@ -1,9 +1,6 @@
-import React, {useState} from "react";
-import {Table} from 'react-bootstrap'
+import React, {useEffect, useState} from "react";
 
 function boardList(props){
-  console.log("리스트")
-  console.log(props.board);
   if(props.board.size==0){
     return;
   }
