@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import BoardNav from "./BoardNav";
-import {Container,Form,Button} from "react-bootstrap";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 function BoardReg(){
@@ -50,34 +49,29 @@ function BoardReg(){
 
 
   return(
-    <>
-      <BoardNav/>
-      <Container>
-        <ul>
-          <li>
-            <Form id="board">
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>제목</Form.Label>
-                <Form.Control type="text" name="title" placeholder="글 제목" onChange={setTitle}/>
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>작성자</Form.Label>
-                <Form.Control type="text" name="author" placeholder="작성자" onChange={setAuthor}/>
-              </Form.Group>              
-              <Form.Group className="mb-3">
-                <Form.Label>게시글 내용</Form.Label>
-                <Form.Control as="textarea" name="content" rows={10} placeholder="내용" onChange={setContent}/>
-              </Form.Group>
-              <div style={{textAlign:'center'}}>
-                <Button onClick={saveBoard}>등록</Button>
-              </div>
-            </Form>
-          </li>
-        </ul>
-      </Container>
-    </>
-  )
-
+      <div className="w-10/12 pl-32">
+        <BoardNav/>
+        <div>
+          <form id="board" >
+            <div className="mb-3">
+              <label htmlFor="title" className="block mb-2 text-base font-medium text-gray-900 text-black">제목</label>
+              <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" id="title" name="title" placeholder="글 제목" onChange={setTitle}/>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="author" className="block mb-2 text-base font-medium text-gray-900 text-black">작성자</label>
+              <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" id="author" name="author" placeholder="작성자" onChange={setTitle}/>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="content" className="block mb-2 text-base font-medium text-gray-900 text-black">내용</label>
+              <textarea rows={10} className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" id="content" name="content" placeholder="내용" onChange={setTitle}/>
+            </div>
+            <div className="text-center">
+              <button className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-2.5 mr-2 mb-2" onClick={saveBoard}>등록</button>
+            </div>
+          </form>
+        </div>
+      </div>
+  );
 }
 
 export default BoardReg;
