@@ -5,12 +5,14 @@ import BoardList from "./BoardList";
 import BoardNav from "./BoardNav";
 import Loading from "../Util/Loading";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 function Board(){
   let [board,setBoard] = useState([]);
   let [option, setOption] = useState('title');
   let [searchTxt, SetSearchTxt] = useState("");
   let [load, setLoad] = useState(true);
+  let navigate = useNavigate();
 
   useEffect(() => {
     searchBoard();
@@ -18,13 +20,18 @@ function Board(){
 
   const searchBoard = ()=>{
     setLoad(true);
-    axios.post("/api/searchBoard",{option, searchTxt})
+    axios.post("/api/searchAllBoard",{option, searchTxt})
       .then(response => {
         setBoard(response.data.data);
         console.log(response.data.data);
         setLoad(false);
       })
       .catch(error => alert(error))
+  }
+
+  const moveDetail=(id)=>{
+    let path = "/board/" + id;
+    navigate(path);
   }
 
   const textEnter= (e)=>{
@@ -66,7 +73,7 @@ function Board(){
                 </tr>
                 </thead>
                 <tbody className="text-gray-600 text-sm font-light">
-                <BoardList board={board}/>
+                <BoardList board={board} move={moveDetail}/>
                 </tbody>
               </table>
             </div>

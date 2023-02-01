@@ -6,7 +6,7 @@ function boardList(props){
   }
   return(
     props.board.map(board =>(
-      <tr key={board.id} className="border-b border-gray-200 hover:bg-gray-100">
+      <tr key={board.id} className="border-b border-gray-200 hover:bg-gray-100" onClick={()=>props.move(board.id)}>
         <td className="py-3 px-6 text-left whitespace-nowrap"></td>
         <td scope="row" className="py-3 px-6 text-left whitespace-nowrap">
           <span className="font-medium">{board.title}</span></td>

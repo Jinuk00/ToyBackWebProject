@@ -20,7 +20,7 @@ public class BoardQuery {
 	private final JPAQueryFactory query;
 	private final EntityManager em;
 
-	public List<BoardDto> findBoard(SearchBoardParamDto paramDto){
+	public List<BoardDto> findAllBoard(SearchBoardParamDto paramDto){
 		return query.select(new QBoardDto(
 						board.id,
 						board.title,
@@ -28,6 +28,16 @@ public class BoardQuery {
 		)).from(board)
 				.where(checkOption(paramDto))
 						.fetch();
+	}
+
+	public BoardDto findDetailBoard(Long id){
+		return query.select(new QBoardDto(
+										board.title,
+										board.author,
+										board.content
+						)).from(board)
+						.where(board.id.eq(id))
+						.fetchOne();
 	}
 
 	private BooleanExpression checkOption(SearchBoardParamDto paramDto){

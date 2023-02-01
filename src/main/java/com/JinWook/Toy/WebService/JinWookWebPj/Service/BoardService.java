@@ -23,7 +23,10 @@ public class BoardService {
 		boardRepository.save(board);
 	}
 
-	public List<BoardDto> SearchBoard(SearchBoardParamDto paramDto) {
-		return boardQuery.findBoard(paramDto);
+	public List<BoardDto> SearchAllBoard(SearchBoardParamDto paramDto) {
+		return boardQuery.findAllBoard(paramDto);
+	}
+	public BoardDto DetailBoard(Long id){
+		return boardQuery.findDetailBoard(id);
 	}
 }

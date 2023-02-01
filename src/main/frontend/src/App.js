@@ -7,9 +7,9 @@ import Board from "./View/Board/Board";
 import Axios from "./View/axios";
 import BoardReg from "./View/Board/BoardReg";
 import Test from "./View/Test/Test";
+import BoardDetail from "./View/Board/BoardDetail";
 
 function App() {
-  console.log("앱 실행")
   return (
     <BrowserRouter>
       <div className="flex bg-back2p">
@@ -33,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/board" element={<Board/>}/>
+          <Route path="/board/:id" element={<BoardDetail/>}></Route>
           <Route path="/board/regist" element={<BoardReg/>}/>
           <Route path="/axios" element={<Axios/>}/>
           <Route path="/test" element={<Test/>}/>

@@ -6,10 +6,7 @@ import com.JinWook.Toy.WebService.JinWookWebPj.Service.BoardService;
 import com.JinWook.Toy.WebService.JinWookWebPj.Utils.CommonResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,9 +20,14 @@ public class BoardController {
 		return CommonResponse.ok("게시글 등록이 완료됐습니다.");
 	}
 
-	@PostMapping("/api/searchBoard")
-	public CommonResponse SearchBoard(@RequestBody SearchBoardParamDto paramDto){
-		log.info("받아온 값 {}",paramDto);
-		return CommonResponse.data(boardService.SearchBoard(paramDto));
+	@PostMapping("/api/searchAllBoard")
+	public CommonResponse SearchAllBoard(@RequestBody SearchBoardParamDto paramDto){
+		return CommonResponse.data(boardService.SearchAllBoard(paramDto));
+	}
+
+	@GetMapping("/api/searchBoard/{id}")
+	public CommonResponse SearchBoard(@PathVariable Long id){
+		log.info("받아온 값 {}",id);
+		return CommonResponse.data(boardService.DetailBoard(id));
 	}
 }

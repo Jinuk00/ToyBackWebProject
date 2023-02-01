@@ -34,4 +34,11 @@ public class BoardDto {
 		this.title = title;
 		this.author = author;
 	}
+
+	@QueryProjection
+	public BoardDto(String title, String author, String content) {
+		this.title = title;
+		this.author = author;
+		this.content = content;
+	}
 }
